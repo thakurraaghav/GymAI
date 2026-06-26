@@ -1,4 +1,4 @@
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { Card } from "../components/ui/Card";
 import { Select } from "../components/ui/Select";
@@ -93,9 +93,7 @@ export default function Onboarding() {
     }
   }
 
-  if (!user) {
-    return <Navigate to="/auth" />;
-  }
+
 
   return (
     <div className="min-h-screen pt-24 pb-12 px-6">

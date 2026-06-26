@@ -14,9 +14,7 @@ import { PlanDisplay } from "../components/plan/PlanDisplay";
 export default function Profile() {
   const { user, isLoading, plan, generatePlan } = useAuth();
 
-  if (!user && !isLoading) {
-    return <Navigate to="/auth" replace />;
-  }
+
 
   if (!plan) {
     return <Navigate to="/onboarding" replace />;
