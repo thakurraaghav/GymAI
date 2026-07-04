@@ -7,7 +7,7 @@ export default function Navbar() {
   const { user, logout } = useAuth();
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-zinc-800 bg-black/80 backdrop-blur-md">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-7xl 2xl:max-w-[1440px] mx-auto px-6 h-16 flex items-center justify-between">
         <Link
           to="/"
           className="flex items-center gap-2 text-zinc-50"

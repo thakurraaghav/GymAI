@@ -87,3 +87,33 @@ export const getCurrentPlan = async (req: Request, res: Response, next: NextFunc
     next(error);
   }
 };
+
+export const getPlanHistory = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const userId = req.query.userId as string;
+    if (!userId) {
+      return res.status(400).json({ error: "User ID is required" });
+    }
+
+    const plans = await prisma.training_plans.findMany({
+      where: { user_id: userId },
+      orderBy: { created_at: "desc" },
+      select: {
+        id: true,
+        version: true,
+        created_at: true,
+        plan_json: true
+      }
+    });
+
+    res.json(plans.map(p => ({
+      id: p.id,
+      version: p.version,
+      createdAt: p.created_at,
+      planJson: p.plan_json
+    })));
+  } catch (error) {
+    console.error("Error fetching plan history", error);
+    next(error);
+  }
+};

@@ -19,6 +19,9 @@ interface AuthContextType {
   ) => Promise<void>;
   generatePlan: () => Promise<void>;
   refreshData: () => Promise<void>;
+  planHistory: any[];
+  fetchPlanHistory: () => Promise<void>;
+  loadPlan: (plan: any) => void;
   login: (token: string, user: User) => void;
   logout: () => void;
 }
@@ -28,6 +31,7 @@ const AuthContext = createContext<AuthContextType | null>(null);
 export default function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [plan, setPlan] = useState<TrainingPlan | null>(null);
+  const [planHistory, setPlanHistory] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const isRefreshingRef = useRef(false);
 
@@ -109,6 +113,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
 
     await api.generatePlan(user.id);
     await refreshData();
+    await fetchPlanHistory();
   }
 
   const login = (token: string, userData: User) => {
@@ -120,6 +125,29 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
     localStorage.removeItem("auth_token");
     setUser(null);
     setPlan(null);
+    setPlanHistory([]);
+  };
+
+  const fetchPlanHistory = useCallback(async () => {
+    if (!user) return;
+    try {
+      const history = await api.getPlanHistory(user.id);
+      setPlanHistory(history || []);
+    } catch (err) {
+      console.error("Failed to fetch plan history:", err);
+    }
+  }, [user?.id]);
+
+  const loadPlan = (historicalPlan: any) => {
+    setPlan({
+      id: historicalPlan.id,
+      userId: user!.id,
+      overview: historicalPlan.planJson.overview,
+      weeklySchedule: historicalPlan.planJson.weeklySchedule,
+      progression: historicalPlan.planJson.progression,
+      version: historicalPlan.version,
+      createdAt: historicalPlan.createdAt,
+    });
   };
 
   return (
@@ -127,10 +155,13 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
       value={{
         user,
         plan,
+        planHistory,
         isLoading,
         saveProfile,
         generatePlan,
         refreshData,
+        fetchPlanHistory,
+        loadPlan,
         login,
         logout,
       }}

@@ -83,8 +83,8 @@ export default function Home() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-lime-400/5 rounded-full blur-[120px] -z-10 animate-pulse-slow" />
 
       {/* ----------------- HERO SECTION ----------------- */}
-      <section className="relative pt-32 pb-20 px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center justify-center">
-        <div className="text-center max-w-4xl mx-auto z-10 relative">
+      <section className="relative pt-32 pb-20 px-6 lg:px-8 max-w-7xl 2xl:max-w-[1440px] mx-auto flex flex-col items-center justify-center w-full">
+        <div className="text-center max-w-4xl 2xl:max-w-5xl mx-auto z-10 relative">
           
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900/80 border border-zinc-800/80 backdrop-blur-sm mb-8 animate-fade-in-up shadow-[0_0_15px_rgba(163,230,53,0.1)] hover:shadow-[0_0_25px_rgba(163,230,53,0.2)] transition-shadow">
             <Zap className="w-4 h-4 text-lime-400" />
@@ -149,7 +149,7 @@ export default function Home() {
       </section>
 
       {/* ----------------- PRODUCT SHOWCASE ----------------- */}
-      <section className="relative px-6 max-w-5xl mx-auto pb-24 z-20">
+      <section className="relative px-6 max-w-5xl 2xl:max-w-7xl w-full mx-auto pb-24 z-20">
         <div className="animate-fade-in-up [animation-delay:600ms] opacity-0" style={{ animationFillMode: 'forwards' }}>
           <div className="bg-zinc-900/50 backdrop-blur-xl border border-zinc-800 p-2 rounded-[2rem] shadow-2xl shadow-lime-400/5">
             <div className="bg-zinc-950 rounded-[1.75rem] p-6 md:p-10 border border-zinc-800/50">
@@ -208,7 +208,7 @@ export default function Home() {
 
       {/* ----------------- HOW IT WORKS ----------------- */}
       <section className="py-24 px-6 bg-zinc-950/80 border-y border-zinc-900 relative">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl 2xl:max-w-[1440px] w-full mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4 text-zinc-100">How It Works</h2>
             <p className="text-zinc-400 text-lg max-w-xl mx-auto">From answering a few simple questions to hitting the gym floor in under 60 seconds.</p>
@@ -237,8 +237,8 @@ export default function Home() {
 
       {/* ----------------- FEATURES ----------------- */}
       <section className="py-24 px-6 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="max-w-7xl 2xl:max-w-[1440px] w-full mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8">
             {features.map((feature, i) => (
               <Card
                 key={feature.title}
@@ -264,7 +264,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-zinc-950/30" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-lime-400/5 rounded-full blur-[120px] -z-10" />
         
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="max-w-7xl 2xl:max-w-[1440px] w-full mx-auto relative z-10">
           <div className="text-center mb-16">
              <h2 className="text-3xl md:text-5xl font-bold mb-4 text-zinc-100">Don't just take our word for it</h2>
              <p className="text-zinc-400 text-lg">Thousands of lifters are upgrading their routines with GymAI.</p>

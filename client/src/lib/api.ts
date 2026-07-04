@@ -57,6 +57,10 @@ export const api = {
     return get(`/plan/current?userId=${userId}`);
   },
 
+  getPlanHistory: (userId: string) => {
+    return get(`/plan/history?userId=${userId}`);
+  },
+
   // Auth endpoints
   login: (data: any) => {
     return post("/auth/login", data);

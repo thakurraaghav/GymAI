@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/Button";
 import { api } from "../lib/api";
 import { useAuth } from "../context/AuthContext";
-import { Dumbbell, ArrowRight, Zap, Brain } from "lucide-react";
+import { Dumbbell, ArrowRight, Zap, Brain, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Auth() {
   const [isLogin, setIsLogin] = useState(true);
@@ -40,12 +41,17 @@ export default function Auth() {
         <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-lime-400/5 rounded-full blur-[100px] animate-pulse-slow" />
 
         <div className="relative z-10">
-          <div className="flex items-center gap-3 mb-16">
-            <div className="p-2 bg-lime-400/10 rounded-lg">
+          <Link to="/" className="inline-flex items-center gap-2 text-zinc-400 hover:text-lime-400 transition-colors mb-12 text-sm font-medium">
+            <ArrowLeft className="w-4 h-4" />
+            Back to Home
+          </Link>
+
+          <Link to="/" className="flex items-center gap-3 mb-16 w-fit group">
+            <div className="p-2 bg-lime-400/10 rounded-lg group-hover:bg-lime-400/20 transition-colors">
               <Dumbbell className="w-6 h-6 text-lime-400" />
             </div>
-            <span className="font-bold text-xl tracking-tight text-zinc-100">GymAI</span>
-          </div>
+            <span className="font-bold text-xl tracking-tight text-zinc-100 group-hover:text-lime-400 transition-colors">GymAI</span>
+          </Link>
 
           <h2 className="text-4xl lg:text-5xl font-bold leading-tight mb-6 text-transparent bg-clip-text bg-gradient-to-br from-white to-zinc-500 animate-fade-in-up">
             Build your ultimate <br />
@@ -88,11 +94,18 @@ export default function Auth() {
         <div className="w-full max-w-md animate-fade-in-up">
           
           {/* Mobile Header (hidden on large screens) */}
-          <div className="lg:hidden flex items-center gap-2 mb-10 justify-center">
-            <div className="p-2 bg-lime-400/10 rounded-lg">
-              <Dumbbell className="w-6 h-6 text-lime-400" />
-            </div>
-            <span className="font-bold text-xl tracking-tight text-zinc-100">GymAI</span>
+          <div className="lg:hidden mb-10 flex flex-col items-center">
+            <Link to="/" className="inline-flex items-center gap-2 text-zinc-400 hover:text-lime-400 transition-colors mb-6 text-sm font-medium self-start">
+              <ArrowLeft className="w-4 h-4" />
+              Back to Home
+            </Link>
+            
+            <Link to="/" className="flex items-center gap-2 group">
+              <div className="p-2 bg-lime-400/10 rounded-lg group-hover:bg-lime-400/20 transition-colors">
+                <Dumbbell className="w-6 h-6 text-lime-400" />
+              </div>
+              <span className="font-bold text-xl tracking-tight text-zinc-100 group-hover:text-lime-400 transition-colors">GymAI</span>
+            </Link>
           </div>
 
           <div className="mb-10 text-center lg:text-left">
