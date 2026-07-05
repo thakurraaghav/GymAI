@@ -141,9 +141,9 @@ export default function Onboarding() {
 
               <form onSubmit={handleQuestionnaire} className="space-y-8">
                 
-                <div className="grid md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-auto">
                   {/* SECTION 1: THE BASICS */}
-                  <Card variant="bordered" className="p-8 bg-zinc-900/60 backdrop-blur-sm border-zinc-800/50 shadow-xl h-full">
+                  <Card variant="bordered" className="md:col-span-2 lg:col-span-2 p-8 bg-zinc-900/60 backdrop-blur-sm border-zinc-800/50 shadow-xl h-full">
                     <div className="flex items-center gap-3 mb-6 border-b border-zinc-800/50 pb-4">
                      <Activity className="w-5 h-5 text-lime-400" />
                      <h2 className="text-xl font-bold text-zinc-100">The Basics</h2>
@@ -167,12 +167,12 @@ export default function Onboarding() {
                 </Card>
 
                   {/* SECTION 2: SCHEDULE */}
-                  <Card variant="bordered" className="p-8 bg-zinc-900/60 backdrop-blur-sm border-zinc-800/50 shadow-xl h-full">
+                  <Card variant="bordered" className="md:col-span-1 lg:col-span-1 p-8 bg-zinc-900/60 backdrop-blur-sm border-zinc-800/50 shadow-xl h-full flex flex-col justify-center">
                     <div className="flex items-center gap-3 mb-6 border-b border-zinc-800/50 pb-4">
                      <Calendar className="w-5 h-5 text-indigo-400" />
                      <h2 className="text-xl font-bold text-zinc-100">Schedule</h2>
                   </div>
-                  <div className="grid sm:grid-cols-2 gap-5">
+                  <div className="space-y-5">
                     <Select
                       id="daysPerWeek"
                       label="Days per week"
@@ -191,7 +191,7 @@ export default function Onboarding() {
                 </Card>
 
                   {/* SECTION 3: LOGISTICS */}
-                  <Card variant="bordered" className="p-8 bg-zinc-900/60 backdrop-blur-sm border-zinc-800/50 shadow-xl h-full">
+                  <Card variant="bordered" className="md:col-span-1 lg:col-span-1 p-8 bg-zinc-900/60 backdrop-blur-sm border-zinc-800/50 shadow-xl h-full flex flex-col justify-center">
                     <div className="flex items-center gap-3 mb-6 border-b border-zinc-800/50 pb-4">
                      <Dumbbell className="w-5 h-5 text-amber-400" />
                      <h2 className="text-xl font-bold text-zinc-100">Logistics</h2>
@@ -215,7 +215,7 @@ export default function Onboarding() {
                 </Card>
 
                   {/* SECTION 4: MEDICAL */}
-                  <Card variant="bordered" className="p-8 bg-zinc-900/60 backdrop-blur-sm border-zinc-800/50 shadow-xl h-full">
+                  <Card variant="bordered" className="md:col-span-1 lg:col-span-2 p-8 bg-zinc-900/60 backdrop-blur-sm border-zinc-800/50 shadow-xl h-full">
                     <div className="flex items-center gap-3 mb-6 border-b border-zinc-800/50 pb-4">
                      <Stethoscope className="w-5 h-5 text-rose-400" />
                      <h2 className="text-xl font-bold text-zinc-100">Medical (Optional)</h2>
@@ -224,7 +224,7 @@ export default function Onboarding() {
                     id="injuries"
                     label="Any injuries or limitations?"
                     placeholder="E.g., lower back issues, shoulder impingement..."
-                    rows={3}
+                    rows={4}
                     value={formData.injuries}
                     onChange={(e) => updateForm("injuries", e.target.value)}
                   />

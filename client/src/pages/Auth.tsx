@@ -35,17 +35,22 @@ export default function Auth() {
   };
 
   return (
-    <div className="min-h-screen flex items-stretch">
+    <div className="min-h-screen flex items-stretch relative">
+      {/* Floating Global Back Button */}
+      <Link 
+        to="/" 
+        className="absolute top-6 left-6 z-50 inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/80 backdrop-blur-md border border-zinc-800 rounded-full text-zinc-300 hover:text-lime-400 hover:border-lime-400/50 hover:bg-zinc-800/80 transition-all shadow-lg text-sm font-medium"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Back to Home
+      </Link>
+
       {/* Left Panel: Project Branding & Description */}
       <div className="hidden lg:flex flex-col justify-between w-1/2 p-12 relative overflow-hidden bg-zinc-950 border-r border-zinc-900">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-lime-400/10 via-transparent to-transparent" />
         <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-lime-400/5 rounded-full blur-[100px] animate-pulse-slow" />
 
         <div className="relative z-10">
-          <Link to="/" className="inline-flex items-center gap-2 text-zinc-400 hover:text-lime-400 transition-colors mb-12 text-sm font-medium">
-            <ArrowLeft className="w-4 h-4" />
-            Back to Home
-          </Link>
 
           <Link to="/" className="flex items-center gap-3 mb-16 w-fit group">
             <div className="p-2 bg-lime-400/10 rounded-lg group-hover:bg-lime-400/20 transition-colors">
@@ -96,10 +101,6 @@ export default function Auth() {
           
           {/* Mobile Header (hidden on large screens) */}
           <div className="lg:hidden mb-10 flex flex-col items-center">
-            <Link to="/" className="inline-flex items-center gap-2 text-zinc-400 hover:text-lime-400 transition-colors mb-6 text-sm font-medium self-start">
-              <ArrowLeft className="w-4 h-4" />
-              Back to Home
-            </Link>
             
             <Link to="/" className="flex items-center gap-2 group">
               <div className="p-2 bg-lime-400/10 rounded-lg group-hover:bg-lime-400/20 transition-colors">
