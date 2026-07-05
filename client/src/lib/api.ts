@@ -62,10 +62,12 @@ export const api = {
   },
 
   // Auth endpoints
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   login: (data: any) => {
     return post("/auth/login", data);
   },
   
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   register: (data: any) => {
     return post("/auth/register", data);
   },

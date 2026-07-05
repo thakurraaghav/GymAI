@@ -15,7 +15,7 @@ import { Card } from "../components/ui/Card";
 import { PlanDisplay } from "../components/plan/PlanDisplay";
 
 export default function Profile() {
-  const { user, isLoading, plan, generatePlan, planHistory, fetchPlanHistory, loadPlan } = useAuth();
+  const { plan, generatePlan, planHistory, fetchPlanHistory, loadPlan } = useAuth();
 
   useEffect(() => {
     fetchPlanHistory();

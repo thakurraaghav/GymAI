@@ -1,19 +1,18 @@
 import { Link, Navigate } from "react-router-dom";
 import {
+  ArrowRight,
+  Dumbbell,
+  BrainCircuit,
   Zap,
   Target,
+  Trophy,
+  Activity,
   Calendar,
-  ArrowRight,
   Sparkles,
   Clock,
-  Dumbbell,
-  Activity,
-  CheckCircle2,
-  ChevronRight,
-  Star,
-  BrainCircuit,
   Settings2,
-  Trophy
+  Star,
+  ChevronRight
 } from "lucide-react";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
@@ -239,7 +238,7 @@ export default function Home() {
       <section className="py-24 px-6 relative z-10">
         <div className="max-w-7xl 2xl:max-w-[1440px] w-full mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8">
-            {features.map((feature, i) => (
+            {features.map((feature) => (
               <Card
                 key={feature.title}
                 variant="bordered"
@@ -274,8 +273,8 @@ export default function Home() {
             {testimonials.map((test, idx) => (
               <Card key={idx} variant="bordered" className="p-8 bg-zinc-900/60 backdrop-blur-sm border-zinc-800 hover:border-lime-400/30 transition-colors shadow-xl">
                 <div className="flex gap-1 mb-6">
-                  {[...Array(test.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-lime-400 text-lime-400" />
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <Star key={index} className="w-4 h-4 fill-lime-400 text-lime-400" />
                   ))}
                 </div>
                 <p className="text-zinc-300 italic mb-8 leading-relaxed">"{test.text}"</p>

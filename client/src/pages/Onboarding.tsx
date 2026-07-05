@@ -59,7 +59,7 @@ const loadingMessages = [
 ];
 
 export default function Onboarding() {
-  const { user, saveProfile, generatePlan } = useAuth();
+  const { saveProfile, generatePlan } = useAuth();
   const [formData, setFormData] = useState({
     goal: "bulk",
     experience: "intermediate",

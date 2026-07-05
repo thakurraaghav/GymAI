@@ -26,8 +26,9 @@ export default function Auth() {
       
       login(response.token, response.user);
       navigate("/profile");
-    } catch (err: any) {
-      setError(err.message || "An error occurred");
+    } catch (err: unknown) {
+      const error = err as Error;
+      setError(error.message || "An error occurred");
     } finally {
       setLoading(false);
     }
